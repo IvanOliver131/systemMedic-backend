@@ -7,13 +7,13 @@
     "dev": "npx nodemon --exec ts-node --files src/index.ts",
     "typeorm": "npx ts-node ./node_modules/typeorm/cli.js",
     "build": "tsc",
-    "start": "node build/src/index.js"
+    "start": "npx nodemon build/src/index.js"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.12",
     "@types/jsonwebtoken": "^8.5.3",
-    "nodemon": "^2.0.9",
+    "nodemon": "^2.0.14",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
   },
