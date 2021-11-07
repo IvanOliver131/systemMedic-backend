@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  postgres:
+    container_name: system_medic
+    image: postgres:12.5
+    environment:
+      POSTGRES_USER: ${TYPEORM_USERNAME_DEV}
+      POSTGRES_DB: ${TYPEORM_DATABASE_DEV}
+      POSTGRES_PASSWORD: ${TYPEORM_PASSWORD_DEV}
+    expose:
+      - "${TYPEORM_PORT_DEV}"
+    ports:
+      - "${TYPEORM_PORT_DEV}:${TYPEORM_PORT_DEV}"
+
