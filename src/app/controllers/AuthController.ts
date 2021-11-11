@@ -19,7 +19,7 @@ class AuthController {
         const isValidPassword = await bcrypt.compare(password, user.password);
 
         if (!isValidPassword) {
-            return res.sendStatus(401);
+            return res.status(401).json({ message: "Usuário ou senha inválidos"});
         }
 
         const token = jwt.sign({ id: user.id }, 'secret', { expiresIn: '1d' });
