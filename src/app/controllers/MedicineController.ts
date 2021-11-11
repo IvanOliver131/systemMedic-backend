@@ -53,7 +53,11 @@ class MedicineController {
 
     async ready(req: Request, res: Response){
         const repository = getRepository(Medicine);
-        const medicines = await repository.find();
+        const medicines = await repository.find({
+            order: {
+                id: "ASC"
+            }
+        });
 
         return res.json(medicines);
     }

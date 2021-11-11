@@ -27,7 +27,11 @@ class UserController {
 
     async ready(req: Request, res: Response){
         const repository = getRepository(User);
-        const users = await repository.find();
+        const users = await repository.find({
+            order: {
+                id: "ASC"
+            }
+        });
 
         return res.json(users);
     }

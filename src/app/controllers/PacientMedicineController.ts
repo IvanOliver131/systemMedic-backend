@@ -39,7 +39,11 @@ class PacientController {
 
     async ready(req: Request, res: Response) {
         const repository = getRepository(PacientMedicine);
-        const drugWithdrawal = await repository.find();
+        const drugWithdrawal = await repository.find({
+            order: {
+                id_pacient: "ASC"
+            }
+        });
 
         return res.json(drugWithdrawal);
     }

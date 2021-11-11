@@ -40,7 +40,7 @@ class PacientController {
         }
 
         lstPacients.forEach((pacient)=>{
-            if(pacient.name == frase || pacient.id == Number(frase)){ 
+            if(pacient.name == frase || pacient.id == Number(frase) || pacient.cpf == frase){ 
                 pacientSpecific.push(pacient);
             }
         });
@@ -54,7 +54,11 @@ class PacientController {
 
     async ready(req: Request, res: Response) {
         const repository = getRepository(Pacient);
-        const pacients = await repository.find();
+        const pacients = await repository.find({
+            order: {
+                id: "ASC"
+            }
+        });
 
         return res.json(pacients);
     }
