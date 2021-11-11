@@ -16,7 +16,7 @@ class UserController {
         const userExists = await repository.findOne({ where: { email } });
 
         if (userExists) {
-            return res.sendStatus(409);
+            return res.sendStatus(409).send({ "message": 'deu ruim'});
         }
 
         const user = repository.create({ username, email, password, type });
